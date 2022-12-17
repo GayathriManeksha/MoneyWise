@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <link rel="stylesheet" href="styler.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<main>
+  <div class="div1">
+    <img src="logo-thumbnail2.jpg">
+  </div>
+  <div class="div2">
+    <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+  <script>
+  var xValues = ["Food", "Travel", "Shopping", "Services", "Transfers","Health","Entertainment","Bills","Cafe","Beverages","Miscellaneous"];
+  var yValues = [55, 49, 44, 24, 15,65,40,25,75,45,30];
+  var barColors = [
+    "#DBA39A",
+    "#BA94D1",
+    "#FEBE8C",
+    "#B6E2A1",
+    "#FFB9B9",
+    "#B8E8FC",
+    "#FDFDBD",
+    "#FFD1D1",
+    "#AAC4FF",
+    "#9ED2C6",
+    "#AAC4FF"
+  ];
+  
+  new Chart("myChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Category-Wise Spent"
+      }
+    }
+  });
+  </script>
+  </div>
+  <div class="div3">
+    <br>
+
+  </div>
+</main>
+
+
+</body>
+</html>
