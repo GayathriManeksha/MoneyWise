@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyWise</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard"><!-- Dashboard -->
+        <section class="navigation"><!-- Navigation -->
+            
+        </section><!-- Navigation End -->
+
+
+        <section class="main"><!-- Main -->
+            
+        </section><!-- Main End -->
+
+        <section class="secondary"><!-- Secondary -->
+            <div class="goal">
+                <div class="complete">
+                    <a href="#" class="setgoal">Set Goal</a>
+                </div>
+            </div>
+
+            <div class="categories"><!-- Category Tracker -->
+                <div class="cat-container">
+                    <div class="cat-label">
+                        FOOD
+                    </div>
+                    <div class="circular-progress-1" id="prog">
+                      <div class="value-container-food">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        TRAVEL
+                    </div>
+                    <div class="circular-progress-2" id="prog">
+                      <div class="value-container-travel">0%</div>
+                    </div>
+                </div>
+                
+                <div class="cat-container">
+                    <div class="cat-label">
+                        SHOPPING
+                    </div>
+                    <div class="circular-progress-3" id="prog">
+                      <div class="value-container-shopping">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        SERVICES
+                    </div>
+                    <div class="circular-progress-4" id="prog">
+                      <div class="value-container-services">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        TRANSFERS
+                    </div>
+                    <div class="circular-progress-5" id="prog">
+                      <div class="value-container-transfers">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        HEALTH
+                    </div>
+                    <div class="circular-progress-6" id="prog">
+                      <div class="value-container-health">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        ENTERTAINMENT
+                    </div>
+                    <div class="circular-progress-7" id="prog">
+                      <div class="value-container-ent">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        BILLS
+                    </div>
+                    <div class="circular-progress-8" id="prog">
+                      <div class="value-container-bills">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        CAFE
+                    </div>
+                    <div class="circular-progress-9" id="prog">
+                      <div class="value-container-cafe">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        BEVERAGES
+                    </div>
+                    <div class="circular-progress-10" id="prog">
+                      <div class="value-container-bev">0%</div>
+                    </div>
+                </div>
+
+                <div class="cat-container">
+                    <div class="cat-label">
+                        MISCELLANEOUS
+                    </div>
+                    <div class="circular-progress-11" id="prog">
+                      <div class="value-container-misc">0%</div>
+                    </div>
+                </div>
+            </div><!-- Categories End -->
+
+        </section><!-- Secondary End -->
+
+    </div><!-- Dashboard End-->
+    
+
+
+
+  <!-- Category Percentage JavaScript  -->
+    <script>
+    let foodBar = document.querySelector(".circular-progress-1");
+    let foodContainer = document.querySelector(".value-container-food");
+
+    let foodValue = 0;
+    let foodEndValue = 18;
+    let foodSpeed = 50;
+
+    let foodProgress = setInterval(() => {
+    foodValue++;
+    foodContainer.textContent = `${foodValue}%`;
+    foodBar.style.background = `conic-gradient(
+      #439A97 ${foodValue * 3.6}deg,
+      #EBF9F7 ${foodValue * 3.6}deg
+    )`;
+    if (foodValue == foodEndValue) {
+    clearInterval(foodProgress);
+    }
+    }, foodSpeed);
+    </script>
+
+<script>
+    let travelBar = document.querySelector(".circular-progress-2");
+    let travelContainer = document.querySelector(".value-container-travel");
+
+    let travelValue = 0;
+    let travelEndValue = 68;
+    let travelSpeed = 50;
+
+    let travelProgress = setInterval(() => {
+    travelValue++;
+    travelContainer.textContent = `${travelValue}%`;
+    travelBar.style.background = `conic-gradient(
+      #439A97 ${travelValue * 3.6}deg,
+      #EBF9F7 ${travelValue * 3.6}deg
+    )`;
+    if (travelValue == travelEndValue) {
+    clearInterval(travelProgress);
+    }
+    }, travelSpeed);
+</script>
+
+
+<script>
+    let shopBar = document.querySelector(".circular-progress-3");
+    let shopContainer = document.querySelector(".value-container-shopping");
+
+    let shopValue = 0;
+    let shopEndValue = 8;
+    let shopSpeed = 50;
+
+    let shopProgress = setInterval(() => {
+    shopValue++;
+    shopContainer.textContent = `${shopValue}%`;
+    shopBar.style.background = `conic-gradient(
+      #439A97 ${shopValue * 3.6}deg,
+      #EBF9F7 ${shopValue * 3.6}deg
+    )`;
+    if (shopValue == shopEndValue) {
+    clearInterval(shopProgress);
+    }
+    }, shopSpeed);
+</script>
+
+<script>
+    let servicesBar = document.querySelector(".circular-progress-4");
+    let servicesContainer = document.querySelector(".value-container-services");
+
+    let servicesValue = 0;
+    let servicesEndValue = 49;
+    let servicesSpeed = 50;
+
+    let servicesProgress = setInterval(() => {
+    servicesValue++;
+    servicesContainer.textContent = `${servicesValue}%`;
+    servicesBar.style.background = `conic-gradient(
+      #439A97 ${servicesValue * 3.6}deg,
+      #EBF9F7 ${servicesValue * 3.6}deg
+    )`;
+    if (servicesValue == servicesEndValue) {
+    clearInterval(servicesProgress);
+    }
+    }, servicesSpeed);
+</script>
+
+<script>
+    let transfersBar = document.querySelector(".circular-progress-5");
+    let transfersContainer = document.querySelector(".value-container-transfers");
+
+    let transfersValue = 0;
+    let transfersEndValue = 68;
+    let transfersSpeed = 50;
+
+    let transfersProgress = setInterval(() => {
+    transfersValue++;
+    transfersContainer.textContent = `${transfersValue}%`;
+    transfersBar.style.background = `conic-gradient(
+      #439A97 ${transfersValue * 3.6}deg,
+      #EBF9F7 ${transfersValue * 3.6}deg
+    )`;
+    if (transfersValue == transfersEndValue) {
+    clearInterval(transfersProgress);
+    }
+    }, transfersSpeed);
+</script>
+
+<script>
+    let healthBar = document.querySelector(".circular-progress-6");
+    let healthContainer = document.querySelector(".value-container-health");
+
+    let healthValue = 0;
+    let healthEndValue = 22;
+    let healthSpeed = 50;
+
+    let healthProgress = setInterval(() => {
+    healthValue++;
+    healthContainer.textContent = `${healthValue}%`;
+    healthBar.style.background = `conic-gradient(
+      #439A97 ${healthValue * 3.6}deg,
+      #EBF9F7 ${healthValue * 3.6}deg
+    )`;
+    if (healthValue == healthEndValue) {
+    clearInterval(healthProgress);
+    }
+    }, healthSpeed);
+</script>
+
+<script>
+    let entBar = document.querySelector(".circular-progress-7");
+    let entContainer = document.querySelector(".value-container-ent");
+
+    let entValue = 0;
+    let entEndValue = 72;
+    let entSpeed = 50;
+
+    let entProgress = setInterval(() => {
+    entValue++;
+    entContainer.textContent = `${entValue}%`;
+    entBar.style.background = `conic-gradient(
+      #439A97 ${entValue * 3.6}deg,
+      #EBF9F7 ${entValue * 3.6}deg
+    )`;
+    if (entValue == entEndValue) {
+    clearInterval(entProgress);
+    }
+    }, entSpeed);
+</script>
+
+<script>
+    let billsBar = document.querySelector(".circular-progress-8");
+    let billsContainer = document.querySelector(".value-container-bills");
+
+    let billsValue = 0;
+    let billsEndValue = 58;
+    let billsSpeed = 50;
+
+    let billsProgress = setInterval(() => {
+    billsValue++;
+    billsContainer.textContent = `${billsValue}%`;
+    billsBar.style.background = `conic-gradient(
+      #439A97 ${billsValue * 3.6}deg,
+      #EBF9F7 ${billsValue * 3.6}deg
+    )`;
+    if (billsValue == billsEndValue) {
+    clearInterval(billsProgress);
+    }
+    }, billsSpeed);
+</script>
+
+<script>
+    let cafeBar = document.querySelector(".circular-progress-9");
+    let cafeContainer = document.querySelector(".value-container-cafe");
+
+    let cafeValue = 0;
+    let cafeEndValue = 49;
+    let cafeSpeed = 50;
+
+    let cafeProgress = setInterval(() => {
+    cafeValue++;
+    cafeContainer.textContent = `${cafeValue}%`;
+    cafeBar.style.background = `conic-gradient(
+      #439A97 ${cafeValue * 3.6}deg,
+      #EBF9F7 ${cafeValue * 3.6}deg
+    )`;
+    if (cafeValue == cafeEndValue) {
+    clearInterval(cafeProgress);
+    }
+    }, cafeSpeed);
+</script>
+
+<script>
+    let bevBar = document.querySelector(".circular-progress-10");
+    let bevContainer = document.querySelector(".value-container-bev");
+
+    let bevValue = 0;
+    let bevEndValue = 24;
+    let bevSpeed = 50;
+
+    let bevProgress = setInterval(() => {
+    bevValue++;
+    bevContainer.textContent = `${bevValue}%`;
+    bevBar.style.background = `conic-gradient(
+      #439A97 ${bevValue * 3.6}deg,
+      #EBF9F7 ${bevValue * 3.6}deg
+    )`;
+    if (bevValue == bevEndValue) {
+    clearInterval(bevProgress);
+    }
+    }, bevSpeed);
+</script>
+
+<script>
+    let miscBar = document.querySelector(".circular-progress-11");
+    let miscContainer = document.querySelector(".value-container-misc");
+
+    let miscValue = 0;
+    let miscEndValue = 100;
+    let miscSpeed = 50;
+
+    let miscProgress = setInterval(() => {
+    miscValue++;
+    miscContainer.textContent = `${miscValue}%`;
+    miscBar.style.background = `conic-gradient(
+      #439A97 ${miscValue * 3.6}deg,
+      #EBF9F7 ${miscValue * 3.6}deg
+    )`;
+    if (miscValue == miscEndValue) {
+    clearInterval(miscProgress);
+    }
+    }, miscSpeed);
+</script>
+
+<!-- Category Percentage JavaScript Ends -->
+
+</body>
+</html>
