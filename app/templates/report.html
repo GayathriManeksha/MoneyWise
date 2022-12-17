@@ -2,7 +2,7 @@
 <html>
 
 <body>
-  <link rel="stylesheet" href="styler.css" />
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/styler.css')}}" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <main>
   <div class="div1">
@@ -12,7 +12,7 @@
     <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
   <script>
   var xValues = ["Food", "Travel", "Shopping", "Services", "Transfers","Health","Entertainment","Bills","Cafe","Beverages","Miscellaneous"];
-  var yValues = [55, 49, 44, 24, 15,65,40,25,75,45,30];
+  yValues = JSON.parse({{ amount| tojson}});;
   var barColors = [
     "#DBA39A",
     "#BA94D1",

@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <link rel="stylesheet" href="stylel.css" />
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/stylel.css')}}" />
   </head>
   <body>
     <main>
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="login_page.html" autocomplete="off" class="sign-in-form">
+            <form action="{{url_for('home')}}" method="post">
               <div class="logo">
-                <img src="./img/logo.jpg" alt="moneywise" />
+                <img src="{{url_for('static',filename = 'images/logo2.jpg')}}" alt="moneywise" />
                 <h4>MoneyWise</h4>
               </div>
 
@@ -53,7 +53,7 @@
 
           <div class="carousel">
             <div class="images-wrapper">
-              <img src="img\Image1.jpeg" class="image img-1 show" alt="" />
+              <img src="{{url_for('static',filename = 'images/image2.jpeg')}}" class="image img-1 show" alt="" />
 
             </div>
 

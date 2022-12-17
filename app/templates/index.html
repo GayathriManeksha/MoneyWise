@@ -22,7 +22,7 @@
               <ul class = "nav-list">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Report</a></li>
-                <li><a href="#">Google Takeout</a></li>
+                <li><a href="{{url_for('takeout')}}">Google Takeout</a></li>
               </ul>
             </nav>
           </aside>
@@ -47,7 +47,7 @@
         <section class="secondary"><!-- Secondary -->
             <div class="goal">
                 <div class="complete">
-                    <a href="#" class="setgoal">Set Goal</a>
+                    <a href="{{url_for('setgoals')}}" class="setgoal">Set Goal</a>
                 </div>
             </div>
 
@@ -170,7 +170,7 @@
   let foodBar = document.querySelector(".circular-progress-1");
   let foodContainer = document.querySelector(".value-container-food");
   // var dfood= JSON.parse({{ dict| tojson }});
-  alert(d.Food)
+  // alert(d.Food)
   let foodValue = 0;
   let foodEndValue = d.Food;
   let foodSpeed = 50;
@@ -193,7 +193,7 @@
   let travelContainer = document.querySelector(".value-container-travel");
 
   // var dtravel = JSON.parse({{ dict| tojson }});
-  alert(d.Travel)
+  // alert(d.Travel)
   let travelValue = 0;
   let travelEndValue = d.Travel;
   let travelSpeed = 50;
@@ -217,7 +217,7 @@
   let shopContainer = document.querySelector(".value-container-shopping");
 
   // var dshop= JSON.parse({{ dict| tojson }});
-  alert(d.Shopping)
+  // alert(d.Shopping)
   let shopValue = 0;
   let shopEndValue = d.Shopping;
   let shopSpeed = 50;
@@ -240,7 +240,7 @@
   let servicesContainer = document.querySelector(".value-container-services");
 
   // var dservice= JSON.parse({{ dict| tojson }})
-  alert(d.Services)
+  // alert(d.Services)
   let servicesValue = 0;
   let servicesEndValue =d.Services;
 
@@ -265,7 +265,7 @@
 
   // var dtransfer=JSON.parse({{ dict| tojson }});
   let transfersValue = 0;
-  alert(d.Transfers)
+  // alert(d.Transfers)
   let transfersEndValue = d.Transfers;
   let transfersSpeed = 50;
 
@@ -288,7 +288,7 @@
 
   // var dhealth= JSON.parse({{ dict| tojson }});
   let healthValue = 0;
-  alert("Health",d.Health)
+  // alert("Health",d.Health)
   let healthEndValue = d.Health;
   let healthSpeed = 50;
 
@@ -425,14 +425,15 @@
   var blue_gradient = bar_ctx.createLinearGradient(0, 0, 0, 700);
   blue_gradient.addColorStop(0, '#CBEDD5');
   blue_gradient.addColorStop(1, '#62B6B7');
-
+  // xValues = JSON.parse({{ months| tojson}});
+  yValues = JSON.parse({{ values| tojson}});
   var bar_chart = new Chart(bar_ctx, {
       type: 'bar',
       data: {
           labels: ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
           datasets: [{
               label: 'Amount Spent',
-              data: [1200, 2500, 2400, 3000, 1400, 5000, 1500, 2300, 2500, 1200, 1432, 1249],
+              data: yValues,
               backgroundColor: blue_gradient,
               hoverBackgroundColor: blue_gradient,
               hoverBorderWidth: 2,
@@ -454,9 +455,10 @@
 <script>
   let moneyBar = document.querySelector(".total-progress");
   let moneyContainer = document.querySelector(".total-spent");
-
+   
+  alert(JSON.parse({{ tot| tojson}}))
   let moneyValue = 0;
-  let moneyEndValue = 24;
+  let moneyEndValue = JSON.parse({{ tot| tojson}});
   let moneySpeed = 50;
 
   let moneyProgress = setInterval(() => {

@@ -3,19 +3,24 @@ from flask import Flask, request, flash, url_for, redirect, render_template ,jso
 from app import app
 from app.gmailread import read
 from app.takeout import read_take
-from app import client
+# from app import client
+from pymongo import MongoClient
 from app.database import dbval
+import pickle
 
+client = MongoClient('localhost', 27017)
 db=client.Appsdata
-category=db.categorydata
+db2=client.testdb
+monthly=db2.monthlydb
+total_amt=db.total
 # store=db.storedata
 # goals=db.set_goal
 
 @app.route('/',methods=['GET'])
 def login():
-    return render_template('base.html')
+    return render_template('Login_Page.html')
 
-@app.route('/home',methods=['GET'])
+@app.route('/home',methods=['POST'])
 def home():
     read()
     # print(goals)
@@ -33,10 +38,26 @@ def home():
     #     else:
     #         d[goal_cat]=0
     # print(d)
+    data=monthly.find()
+    print(data)
+    # tot_amt=total_amt.find_one()
+    # print(total_amt['Amount'])
+    total=pickle.load(open('total.pkl','rb'))
+    months=[]
+    values=[]
+    for x in data:
+        print(x)
+        months.append(x['Month'])
+        values.append(x['Total'])
+    print(months)
+    print(values)
+    m=json.dumps(months)
+    v=json.dumps(values)
     dict=json.dumps(d)
-    return render_template('index.html',dict=dict)
+    t=json.dumps(total)
+    return render_template('index.html',dict=dict,months=m,values=v,tot=t)
 
-@app.route('/takeout',methods=['GET'])
+@app.route('/takeout',methods=['POST','GET'])
 def takeout():
     df=read_take()
     df2=df.groupby('Type')['Amount'].sum()
@@ -48,45 +69,120 @@ def takeout():
     print(df4)
     return render_template('base.html')
 
-@app.route('/setgoals',methods=['GET','POST'])
+@app.route('/setgoals',methods=['POST','GET'])
 def setgoals():
+    d=dict()
     goals=db.set_goal
+    gl=goals.find()
+    for g in gl:
+        d[g['cat_name']]=g['goalval']
     if request.method=='POST':
         if request.form.get('food')=='food':
             print("Food",request.form['foodt'])
+            # x=goals.find_one({"cat_name":"Food"})
+            # if  x!=None:
+            #     d['Food']=x['goalval']
+            # else:
+            #     d['Food']='0'
             goals.update_one({"cat_name":"Food"},{"$set":{"goalval":request.form['foodt']}},upsert=True)
         elif request.form.get('travel')=='travel':
+            # x=goals.find_one({"cat_name":"Travel"})
+            # if  x!=None:
+            #     d['Travel']=x['goalval']
+            # else:
+            #     d['Travel']=0
             goals.update_one({"cat_name":"Travel"},{"$set":{"goalval":request.form['travelt']}},upsert=True)
             print("Travel")
         elif request.form.get('shopping')=='shopping':
+            # x=goals.find_one({"cat_name":"Shopping"})
+            # if  x!=None:
+            #     d['shopping']=x['goalval']
+            # else:
+            #     d['shopping']='0'
             goals.update_one({"cat_name":"Shopping"},{"$set":{"goalval":request.form['shoppingt']}},upsert=True)
             print("Travel")
         elif request.form.get('services')=='services':
+            # x=goals.find_one({"cat_name":"Services"})
+            # if  x!=None:
+            #     d['Services']=x['goalval']
+            # else:
+            #     d['Services']='0'
             goals.update_one({"cat_name":"Services"},{"$set":{"goalval":request.form['servicest']}},upsert=True)
             print("Travel")
         elif request.form.get('transfers')=='transfers':
+            # x=goals.find_one({"cat_name":"Transfers"})
+            # if  x!=None:
+            #     d['Transfers']=x['goalval']
+            # else:
+            #     d['Transfers']='0'
             goals.update_one({"cat_name":"Transfers"},{"$set":{"goalval":request.form['transferst']}},upsert=True)
             print("Travel")
         elif request.form.get('health')=='health':
+            # x=goals.find_one({"cat_name":"Health"})
+            # if  x!=None:
+            #     d['Health']=x['goalval']
+            # else:
+            #     d['Health']='0'
             goals.update_one({"cat_name":"Health"},{"$set":{"goalval":request.form['healtht']}},upsert=True)
             print("Travel")
         elif request.form.get('entertainment')=='entertainment':
+            # x=goals.find_one({"cat_name":"Entertainment"})
+            # if  x!=None:
+            #     d['Entertainment']=x['goalval']
+            # else:
+            #     d['Entertainment']='0'
             goals.update_one({"cat_name":"Entertainment"},{"$set":{"goalval":request.form['entertainmentt']}},upsert=True)
             print("Travel")
         elif request.form.get('bills')=='bills':
+            # x=goals.find_one({"cat_name":"Bills"})
+            # if  x!=None:
+            #     d['Bills']=x['goalval']
+            # else:
+            #     d['Bills']='0'
             goals.update_one({"cat_name":"Bills"},{"$set":{"goalval":request.form['billst']}},upsert=True)
             print("Travel")
         elif request.form.get('cafe')=='cafe':
+            # x=goals.find_one({"cat_name":"Cafe"})
+            # if  x!=None:
+            #     d['Cafe']=x['goalval']
+            # else:
+            #     d['Cafe']='0'
             goals.update_one({"cat_name":"Cafe"},{"$set":{"goalval":request.form['cafet']}},upsert=True)
             print("Travel")
         elif request.form.get('beverages')=='beverages':
+            # x=goals.find_one({"cat_name":"Food"})
+            # if  x!=None:
+            #     d['Beverages']=x['goalval']
+            # else:
+            #     d['Beverages']='0'
             goals.update_one({"cat_name":"Beverages"},{"$set":{"goalval":request.form['beveragest']}},upsert=True)
             print("Travel")
         elif request.form.get('miscellaneous')=='miscellaneous':
+            # x=goals.find_one({"cat_name":"Food"})
+            # if  x!=None:
+            #     d['Miscellaneous']=x['goalval']
+            # else:
+            #     d['Miscellaneous']='0'
             goals.update_one({"cat_name":"Miscellaneous"},{"$set":{"goalval":request.form['miscellaneoust']}},upsert=True)
             print("Travel")
         else:
             print("None")
-        return render_template('Set_goals.html')
-    else:
-        return render_template('Set_goals.html')
+        print(d)
+        return render_template('Set_goals.html',dict=d)
+    return render_template('Set_goals.html')
+
+@app.route('/report',methods=['GET','POST'])
+def report():
+    category=db.categorydata
+    cat=category.find()
+    ctg=[]
+    amt=[]
+
+    for x in cat:
+        ctg.append(x['cat_name'])
+        amt.append(x['Amount'])
+    # print(months)
+    # print(values)
+    c=json.dumps(ctg)
+    a=json.dumps(amt)
+    return render_template('report.html',category=c,amount=a)

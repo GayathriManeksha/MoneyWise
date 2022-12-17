@@ -9,6 +9,7 @@ body{
 .dashboard{
     padding-right: 15px;
     margin: 0 auto;
+    overflow-x:hidden;
 }
 
 .logo{

@@ -13,12 +13,12 @@
     <main>
         <h1>SET GOALS</h1>
         <br><br>
-        <form method="post">
+    <form action="{{url_for('setgoals')}}" method="post">
         <div class="grid-container">
             <div class="grid-item">
                 <div class="middle">
                     <label for="food">FOOD</label><br><br>
-                    <input class="tb" type="text" id="food" name="foodt"><br><br>
+                    <input class="tb" type="text" id="food" name="foodt" value={{dict.Food}} ><br><br>
                     <button class="button button1" onclick="alert('Goal set for food')" name="food"
                         value="food" type="submit">SET</button>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="middle">
 
                     <label for="travel">TRAVEL</label><br><br>
-                    <input class="tb" type="text" id="travel" name="travelt"><br><br>
+                    <input class="tb" type="text" id="travel" name="travelt" value={{dict.Travel}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for travel')" name="travel"
                         value="travel" type="submit">SET</button>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="middle">
 
                     <label for="shopping">SHOPPING</label><br><br>
-                    <input class="tb" type="text" id="shopping" name="shoppingt"><br><br>
+                    <input class="tb" type="text" id="shopping" name="shoppingt" value={{dict.Shopping}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for shopping')" name="shopping"
                         value="shopping" type="submit">SET</button>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="middle">
 
                     <label for="services">SERVICES</label><br><br>
-                    <input class="tb" type="text" id="services" name="servicest"><br><br>
+                    <input class="tb" type="text" id="services" name="servicest" value={{dict.Shopping}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for services')" name="services"
                         value="services" type="submit">SET</button>
                 </div>
@@ -53,7 +53,7 @@
             <div class="grid-item">
                 <div class="middle">
                     <label for="transfers">TRANSFERS</label><br><br>
-                    <input class="tb" type="text" id="transfers" name="transferst"><br><br>
+                    <input class="tb" type="text" id="transfers" name="transferst" value={{dict.Transfers}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for transfers')" name="transfers"
                         value="transfers" type="submit">SET</button>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="middle">
 
                     <label for="health">HEALTH</label><br><br>
-                    <input class="tb" type="text" id="health" name="healtht"><br><br>
+                    <input class="tb" type="text" id="health" name="healtht" value={{dict.Health}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for health')" name="health"
                         value="health" type="submit">SET</button>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="middle">
 
                     <label for="entertainment">ENTERTAINMENT</label><br><br>
-                    <input class="tb" type="text" id="entertainment" name="entertainmentt"><br><br>
+                    <input class="tb" type="text" id="entertainment" name="entertainment" value={{dict.Entertainment}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for entertainment')" name="entertainment"
                         value="entertainment" type="submit">SET</button>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="middle">
 
                     <label for="bills">BILLS</label><br><br>
-                    <input class="tb" type="text" id="bills" name="billst"><br><br>
+                    <input class="tb" type="text" id="bills" name="billst" value={{dict.Bills}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for bills')" name="bills"
                         value="bills" type="submit">SET</button>
                 </div>
@@ -88,7 +88,7 @@
             <div class="grid-item">
                 <div class="middle">
                     <label for="cafe">CAFE</label><br><br>
-                    <input class="tb" type="text" id="cafe" name="cafet"><br><br>
+                    <input class="tb" type="text" id="cafe" name="cafet" value={{dict.Cafe}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for cafe')" name="cafe"
                         value="cafe" type="submit">SET</button>
                 </div>
@@ -97,7 +97,7 @@
                 <div class="middle">
 
                     <label for="beverages">BEVERAGES</label><br><br>
-                    <input class="tb" type="text" id="beverages" name="beveragest"><br><br>
+                    <input class="tb" type="text" id="beverages" name="beveragest" value={{dict.Beverages}}><br><br>
                     <button class="button button1" onclick="alert('Goal set for beverages')" name="beverages"
                         value="beverages" type="submit">SET</button>
                 </div>
@@ -105,13 +105,13 @@
             <div class="grid-item">
                 <div class="middle">
                     <label for="miscellaneous">MISCELLANEOUS</label><br><br>
-                    <input class="tb" type="text" id="miscellaneous" name="miscellaneoust"><br><br>
+                    <input class="tb" type="text" id="miscellaneous" name="miscellaneoust" value={{dict.Miscellaneous}}><br><br>
                     <button class="button button1" onclick="alert('Goal Set for Miscellaneous')" name="miscellaneous"
                         value="miscellaneous" type="submit">SET</button>
                 </div>
             </div>
         </div>
-        </form>
+     </form>
     </main>
 </body>
 

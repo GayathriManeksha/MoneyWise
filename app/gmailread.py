@@ -13,7 +13,7 @@ db=client.Appsdata
 
 category=db.categorydata
 store=db.storedata
-
+total_amt=db.total
 # Scopes of the API as defined by google
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -75,6 +75,14 @@ def read():
         #     date_time_str=datetime.strptime(date_str+time_str,"%Y-%m-%d%H:%M:%S")
 
         # pickle.dump(now, open('lastdt.pkl','wb'))
+
+        # FOR TOTAL 
+        total=0
+        try:
+            total=pickle.load(open('total.pkl','rb'))
+        except (OSError, IOError) as e:
+            pickle.dump(total, open('total.pkl','wb'))
+
         date_time_Str=""
         if not messages:
             print ("No messages found.")
@@ -126,6 +134,8 @@ def read():
                             print(p)
                             category.update_one({"cat_name":p[0]},{"$inc":{"Amount":spend}},upsert=True)
                             store.update_one({"name":s,"cat_name":p[0]},{"$inc":{"Amount":spend}},upsert=True)
+                            total+=spend
+                            pickle.dump(total, open('total.pkl','wb'))
                         else:
                             spend=int(splittd_msg[16][1:-3])
                             s=splittd_msg[i+1]
@@ -135,6 +145,8 @@ def read():
                             print(type(p))
                             category.update_one({"cat_name":p[0]},{"$inc":{"Amount":spend}},upsert=True)
                             store.update_one({"name":s,"cat_name":p[0]},{"$inc":{"Amount":spend}},upsert=True)
+                            total+=spend
+                            pickle.dump(total, open('total.pkl','wb'))
                     else:
                         print("Exit")
                         f=False
