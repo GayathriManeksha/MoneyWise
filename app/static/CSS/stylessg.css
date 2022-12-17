@@ -1,50 +1,68 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"); */
 body{
-    color: #439A97;
-    background-color: #e1f0f4;
-    padding: 10px;
+  color: #439A97;
+  background-color: #ffffff;
+  padding: 10px;
+  font-family: "Nunito", sans-serif;
 }
 main{
-    
-    text-align: center;
+  
+  text-align: center;
 }
 .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-   
-    /* padding: 10px; */
-    gap: 100px 50px;
-    /* column-gap: 50px;
-    row-gap: 50px; */
-  }
+  display: grid;
+  grid-template-columns: auto auto auto;
+ 
+  /* padding: 10px; */
+  gap: 100px 50px;
+  /* column-gap: 50px;
+  row-gap: 50px; */
+}
 .grid-item {
-    background-color:white;
-    border-radius: 25px;
-    border: 2px transparent;
-    padding: 10px;
-    font-size: 25px;
-    text-align: center;
-    color: #3f8e8c;
-  }
-  .tb{
-    border-color: #439A97;
-    border-radius: 12px;
-    height: 30px;
-    width:80%;
-    
-  }
-  .button {
-    background-color: #439A97;
-    border: none;
-    color:  #e1f0f4;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-.button1{
-    border-radius: 12px;
+  height: 200px;
+  background-color:white;
+  border-radius: 25px;
+  border: 3px solid;
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  color:#439A97;
+  border-color: #439A97;
+}
+.tb{
+  font-family: "Nunito", sans-serif;
+  border: 2px solid;
+  color: #439A97;
+  border-color: #439A97;
+  border-radius: 12px;
+  height: 30px;
+  width:80%;
   
-  }
+}
+.button:hover {
+
+  background-color: #ccefee;
+  transition: 0.7s;
+ 
+}
+
+.button {
+  background-color: #439A97;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  /* color:  #e1f0f4; */
+  width:25%;
+  color:white ;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1{
+  border-radius: 12px;
+
+}
