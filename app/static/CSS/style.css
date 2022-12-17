@@ -4,19 +4,134 @@
 }
 body{
     margin: 0px;
-    background-color: aliceblue;
+    background-color: #F6FDFC;
 }
 .dashboard{
-    padding: 0px 15px;
+    padding-right: 15px;
     margin: 0 auto;
 }
 
+.logo{
+    width:100%;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+/* Nav Bar Styles */
+.sidebar {
+    position: fixed;
+    width: 20%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100vh;
+    background:#439A97;
+    font-size: 0.85em;
+  }
+  
+  .nav {
+    position: relative;
+    margin: 0 15%;
+    text-align: right;
+    top: 35%;
+    transform: translateY(-50%);
+    font-weight: bold;
+  }
+  .nav-list{
+    margin-top:45%;
+  }
+  .nav ul {
+    list-style: none;
+  }
+  .nav ul li {
+    position: relative;
+    margin: 3.2em 0;
+  }
+  .nav ul li a {
+    line-height: 5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.35);
+    display: block;
+    transition: all ease-out 300ms;
+  }
+  .nav ul li.active a {
+    color: white;
+  }
+  .nav ul li:not(.active)::after {
+    opacity: 0.2;
+  }
+  .nav ul li:not(.active):hover a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .nav ul li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    background: black;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, #ffffff, #62CFC5);
+  }
+
+
+/* Main Section Styles */
+.main-bar{
+    display:inline-block;
+    position: fixed;
+    margin-left:13%;
+    margin-right:10%;
+    width: 58%;
+    height: 100vh;
+    background:#F6FDFC;
+    font-size: 0.85em;
+}
+
+.dashboard .main .total{
+    padding: 15px 15px 15px 60px;
+    margin-bottom: 30px;
+    overflow : auto;
+}
+
+#bar-chart {
+    display: block;
+    max-height: 455px;
+    max-width: 800px;
+    margin: 60px auto;
+  }
+
+.total-progress{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    margin-left:30%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.total-progress:before {
+    content: "";
+    position: absolute;
+    height: 84%;
+    width: 84%;
+    background-color: #c5e2dc;
+    border-radius: 50%;
+  }
+
+.total-spent{
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    color: #439A97;
+}
 
 /* ==========================
 Secondary Statics
 ============================= */
 .dashboard .goal{
     background-color: #EDF8F7;
+    margin-left:10%;
 }
 /* Goals */
 .dashboard .secondary .goal .complete{
@@ -26,12 +141,12 @@ Secondary Statics
 
 .dashboard .secondary .goal .complete .setgoal{
      display: inline-block;
-	 padding: 0.75rem 0.85rem;
+	 padding: 0.75rem 2.25rem;
 	 border-radius: 10rem;
 	 color: #fff;
      text-decoration: none;
 	 text-transform: uppercase;
-	 font-size: 1.5rem;
+	 font-size: 1.25rem;
 	 letter-spacing: 0.15rem;
 	 transition: all 0.3s;
 	 position: relative;
@@ -140,29 +255,7 @@ Secondary Statics
 Media Query 768xp 
 ============================= */
 @media only screen and (min-width: 768px){
-    /* Dashboard Search */
-    .dashboard .main .search{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 70px;
-        margin-bottom: 50px;
-    }
-    .dashboard .main .search form{
-        margin-top: 10px;
-    }
-    section.main .project_list{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    section.main .project_list .project{
-        width: 47%;
-    }
-    section.main .project_list .project span{
-        margin-top: 15px;
-    }
 
-    /* Recent Projects */
     section.secondary{
         display: flex;
         justify-content: space-between;
