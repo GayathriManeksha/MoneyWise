@@ -1,102 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set Goals</title>
-    <link rel="stylesheet" href="stylessg.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/stylessg.css')}}">
 </head>
-<body>  
+
+<body>
     <main>
         <h1>SET GOALS</h1>
         <br><br>
+        <form method="post">
         <div class="grid-container">
             <div class="grid-item">
                 <div class="middle">
                     <label for="food">FOOD</label><br><br>
-                     <input class="tb" type="text" id="food"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for food')">SET</button>
+                    <input class="tb" type="text" id="food" name="foodt"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for food')" name="food"
+                        value="food" type="submit">SET</button>
                 </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-                   
+
                     <label for="travel">TRAVEL</label><br><br>
-                    <input class="tb" type="text" id="travel"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for travel')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="travel" name="travelt"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for travel')" name="travel"
+                        value="travel" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-        
+
                     <label for="shopping">SHOPPING</label><br><br>
-                    <input class="tb" type="text" id="shopping"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for shopping')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="shopping" name="shoppingt"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for shopping')" name="shopping"
+                        value="shopping" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-                   
+
                     <label for="services">SERVICES</label><br><br>
-                    <input class="tb" type="text" id="services"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for services')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="services" name="servicest"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for services')" name="services"
+                        value="services" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
                     <label for="transfers">TRANSFERS</label><br><br>
-                    <input class="tb" type="text" id="transfers"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for transfers')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="transfers" name="transferst"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for transfers')" name="transfers"
+                        value="transfers" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-        
+
                     <label for="health">HEALTH</label><br><br>
-                    <input class="tb"type="text" id="health"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for health')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="health" name="healtht"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for health')" name="health"
+                        value="health" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-                   
+
                     <label for="entertainment">ENTERTAINMENT</label><br><br>
-                    <input class="tb"type="text" id="entertainment"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for entertainment')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="entertainment" name="entertainmentt"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for entertainment')" name="entertainment"
+                        value="entertainment" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-                
+
                     <label for="bills">BILLS</label><br><br>
-                    <input class="tb"type="text" id="bills"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for bills')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="bills" name="billst"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for bills')" name="bills"
+                        value="bills" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
                     <label for="cafe">CAFE</label><br><br>
-                    <input class="tb"type="text" id="cafe"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for cafe')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="cafe" name="cafet"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for cafe')" name="cafe"
+                        value="cafe" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
-                    
+
                     <label for="beverages">BEVERAGES</label><br><br>
-                    <input class="tb"type="text" id="beverages"><br><br>
-                     <button class="button button1" onclick="alert('Goal set for beverages')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="beverages" name="beveragest"><br><br>
+                    <button class="button button1" onclick="alert('Goal set for beverages')" name="beverages"
+                        value="beverages" type="submit">SET</button>
+                </div>
             </div>
             <div class="grid-item">
                 <div class="middle">
                     <label for="miscellaneous">MISCELLANEOUS</label><br><br>
-                    <input class="tb" type="text" id="miscellaneous"><br><br>
-                     <button class="button button1" onclick="alert('Goal Set for Miscellaneous')">SET</button>
-               </div>
+                    <input class="tb" type="text" id="miscellaneous" name="miscellaneoust"><br><br>
+                    <button class="button button1" onclick="alert('Goal Set for Miscellaneous')" name="miscellaneous"
+                        value="miscellaneous" type="submit">SET</button>
+                </div>
             </div>
         </div>
+        </form>
     </main>
 </body>
+
 </html>

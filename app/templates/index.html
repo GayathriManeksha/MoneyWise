@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/style.css')}}">
 </head>
 
 <body>
@@ -136,15 +136,18 @@
     </div><!-- Dashboard End-->
     
 
-
+   <script>
+    var d= JSON.parse({{ dict| tojson }});
+   </script>
 
   <!-- Category Percentage JavaScript  -->
     <script>
     let foodBar = document.querySelector(".circular-progress-1");
     let foodContainer = document.querySelector(".value-container-food");
-
+    // var dfood= JSON.parse({{ dict| tojson }});
+    alert(d.Food)
     let foodValue = 0;
-    let foodEndValue = 18;
+    let foodEndValue = d.Food;
     let foodSpeed = 50;
 
     let foodProgress = setInterval(() => {
@@ -164,8 +167,10 @@
     let travelBar = document.querySelector(".circular-progress-2");
     let travelContainer = document.querySelector(".value-container-travel");
 
+    // var dtravel = JSON.parse({{ dict| tojson }});
+    alert(d.Travel)
     let travelValue = 0;
-    let travelEndValue = 68;
+    let travelEndValue = d.Travel;
     let travelSpeed = 50;
 
     let travelProgress = setInterval(() => {
@@ -186,8 +191,10 @@
     let shopBar = document.querySelector(".circular-progress-3");
     let shopContainer = document.querySelector(".value-container-shopping");
 
+    // var dshop= JSON.parse({{ dict| tojson }});
+    alert(d.Shopping)
     let shopValue = 0;
-    let shopEndValue = 8;
+    let shopEndValue = d.Shopping;
     let shopSpeed = 50;
 
     let shopProgress = setInterval(() => {
@@ -207,8 +214,11 @@
     let servicesBar = document.querySelector(".circular-progress-4");
     let servicesContainer = document.querySelector(".value-container-services");
 
+    // var dservice= JSON.parse({{ dict| tojson }})
+    alert(d.Services)
     let servicesValue = 0;
-    let servicesEndValue = 49;
+    let servicesEndValue =d.Services;
+
     let servicesSpeed = 50;
 
     let servicesProgress = setInterval(() => {
@@ -228,8 +238,10 @@
     let transfersBar = document.querySelector(".circular-progress-5");
     let transfersContainer = document.querySelector(".value-container-transfers");
 
+    // var dtransfer=JSON.parse({{ dict| tojson }});
     let transfersValue = 0;
-    let transfersEndValue = 68;
+    alert(d.Transfers)
+    let transfersEndValue = d.Transfers;
     let transfersSpeed = 50;
 
     let transfersProgress = setInterval(() => {
@@ -249,8 +261,10 @@
     let healthBar = document.querySelector(".circular-progress-6");
     let healthContainer = document.querySelector(".value-container-health");
 
+    // var dhealth= JSON.parse({{ dict| tojson }});
     let healthValue = 0;
-    let healthEndValue = 22;
+    alert("Health",d.Health)
+    let healthEndValue = d.Health;
     let healthSpeed = 50;
 
     let healthProgress = setInterval(() => {
@@ -270,8 +284,9 @@
     let entBar = document.querySelector(".circular-progress-7");
     let entContainer = document.querySelector(".value-container-ent");
 
+    // var dent= JSON.parse({{ dict| tojson }});
     let entValue = 0;
-    let entEndValue = 72;
+    let entEndValue = d.Entertainment;
     let entSpeed = 50;
 
     let entProgress = setInterval(() => {
@@ -291,8 +306,9 @@
     let billsBar = document.querySelector(".circular-progress-8");
     let billsContainer = document.querySelector(".value-container-bills");
 
+    // var dbills=JSON.parse({{ dict| tojson }});
     let billsValue = 0;
-    let billsEndValue = 58;
+    let billsEndValue = d.Bills;
     let billsSpeed = 50;
 
     let billsProgress = setInterval(() => {
@@ -312,8 +328,9 @@
     let cafeBar = document.querySelector(".circular-progress-9");
     let cafeContainer = document.querySelector(".value-container-cafe");
 
+    // var dcafe=JSON.parse({{ dict| tojson }});
     let cafeValue = 0;
-    let cafeEndValue = 49;
+    let cafeEndValue = d.Cafe;
     let cafeSpeed = 50;
 
     let cafeProgress = setInterval(() => {
@@ -333,8 +350,9 @@
     let bevBar = document.querySelector(".circular-progress-10");
     let bevContainer = document.querySelector(".value-container-bev");
 
+    // var dbev=JSON.parse({{ dict| tojson }});
     let bevValue = 0;
-    let bevEndValue = 24;
+    let bevEndValue = d.Beverages;
     let bevSpeed = 50;
 
     let bevProgress = setInterval(() => {
@@ -354,8 +372,9 @@
     let miscBar = document.querySelector(".circular-progress-11");
     let miscContainer = document.querySelector(".value-container-misc");
 
+    // var dmisc= JSON.parse({{ dict| tojson }});
     let miscValue = 0;
-    let miscEndValue = 100;
+    let miscEndValue = d.Miscellaneous;
     let miscSpeed = 50;
 
     let miscProgress = setInterval(() => {

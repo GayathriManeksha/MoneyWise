@@ -70,25 +70,26 @@ def read_take():
     data={'Name':list1,'Type':list3,'Amount':list2}
 
     df=pd.DataFrame(data) 
-    df2=df.groupby('Type')['Amount'].sum()
-    df3=df.groupby('Name')['Amount'].sum()
+    # df2=df.groupby('Type')['Amount'].sum()
+    # df3=df.groupby('Name')['Amount'].sum()
 
-    df4=df.groupby('Name').size().sort_values(ascending=False)
-    print(df4)
+    # df4=df.groupby('Name').size().sort_values(ascending=False)
+    # print(df4)
 
 
-    try:
-        id=0
-        for items in df4.iteritems():
-            shopfreq.insert_one({'_id':id,'Store':items[0], 'Count':items[1]})
-            id=id+1
-    except:
-        print("Duplicate")
+    # try:
+    #     id=0
+    #     for items in df4.iteritems():
+    #         shopfreq.insert_one({'_id':id,'Store':items[0], 'Count':items[1]})
+    #         id=id+1
+    # except:
+    #     print("Duplicate")
 
-    try:
-        id=0
-        for items in df2.iteritems():
-            dbdata.insert_one({'_id':id,'Category':items[0], 'Sum':items[1]})
-            id=id+1
-    except:
-        print("Duplicate")
+    # try:
+    #     id=0
+    #     for items in df2.iteritems():
+    #         dbdata.insert_one({'_id':id,'Category':items[0], 'Sum':items[1]})
+    #         id=id+1
+    # except:
+    #     print("Duplicate")
+    return df
