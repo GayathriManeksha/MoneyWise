@@ -14,3 +14,12 @@ ENV/
 env.bak/
 venv.bak/
 env
+
+#ml
+testml/
+
+#token
+*.json
+
+#html
+My Activity.html
