@@ -1,22 +1,25 @@
-*{
+* {
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
 }
-body{
+
+body {
     margin: 0px;
     background-color: #F6FDFC;
 }
-.dashboard{
+
+.dashboard {
     padding-right: 15px;
     margin: 0 auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
-.logo{
-    width:100%;
-    padding-top: 10px;
+.logo {
+    width: 100%;
+    padding-top: 75px;
     border-radius: 10px;
 }
+
 /* Nav Bar Styles */
 .sidebar {
     position: fixed;
@@ -24,29 +27,33 @@ body{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 100vh;
-    background:#439A97;
+    background: #439A97;
     font-size: 0.85em;
-  }
-  
-  .nav {
+}
+
+.nav {
     position: relative;
     margin: 0 15%;
     text-align: right;
     top: 35%;
     transform: translateY(-50%);
     font-weight: bold;
-  }
-  .nav-list{
-    margin-top:45%;
-  }
-  .nav ul {
+}
+
+.nav-list {
+    margin-top: 45%;
+}
+
+.nav ul {
     list-style: none;
-  }
-  .nav ul li {
+}
+
+.nav ul li {
     position: relative;
     margin: 3.2em 0;
-  }
-  .nav ul li a {
+}
+
+.nav ul li a {
     line-height: 5em;
     text-transform: uppercase;
     text-decoration: none;
@@ -54,17 +61,21 @@ body{
     color: rgba(255, 255, 255, 0.35);
     display: block;
     transition: all ease-out 300ms;
-  }
-  .nav ul li.active a {
+}
+
+.nav ul li.active a {
     color: white;
-  }
-  .nav ul li:not(.active)::after {
+}
+
+.nav ul li:not(.active)::after {
     opacity: 0.2;
-  }
-  .nav ul li:not(.active):hover a {
+}
+
+.nav ul li:not(.active):hover a {
     color: rgba(255, 255, 255, 0.75);
-  }
-  .nav ul li::after {
+}
+
+.nav ul li::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -73,25 +84,42 @@ body{
     left: 0;
     bottom: 0;
     background-image: linear-gradient(to right, #ffffff, #62CFC5);
-  }
+}
 
 
 /* Main Section Styles */
-.main-bar{
-    display:inline-block;
+.main-bar {
+    display: inline-block;
     position: fixed;
-    margin-left:13%;
-    margin-right:10%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 13%;
+    margin-right: 10%;
     width: 58%;
     height: 100vh;
-    background:#F6FDFC;
+    background: #F6FDFC;
     font-size: 0.85em;
 }
 
-.dashboard .main .total{
-    padding: 15px 15px 15px 60px;
-    margin-bottom: 30px;
-    overflow : auto;
+.grid-container {
+    /* padding: 15px 15px 15px 60px; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
+    gap: 0px 20px;
+}
+
+.grid-item {
+    height: 200px;
+    /* background-color: white; */
+    border-radius: 15px;
+    border: none;
+    /* padding: 10px; */
+    font-size: 15px;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    color: #439A97;
+    border-color: #439A97;
 }
 
 #bar-chart {
@@ -99,13 +127,13 @@ body{
     max-height: 455px;
     max-width: 800px;
     margin: 60px auto;
-  }
+}
 
-.total-progress{
+.total-progress {
     position: relative;
-    height: 250px;
-    width: 250px;
-    margin-left:30%;
+    height: 225px;
+    width: 225px;
+    /* margin-left: 30%; */
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -118,9 +146,9 @@ body{
     width: 84%;
     background-color: #c5e2dc;
     border-radius: 50%;
-  }
+}
 
-.total-spent{
+.total-spent {
     position: relative;
     font-family: "Poppins", sans-serif;
     font-size: 30px;
@@ -130,65 +158,66 @@ body{
 /* ==========================
 Secondary Statics
 ============================= */
-.dashboard .goal{
+.dashboard .goal {
     background-color: #EDF8F7;
-    margin-left:10%;
+    margin-left: 10%;
 }
+
 /* Goals */
-.dashboard .secondary .goal .complete{
+.dashboard .secondary .goal .complete {
     text-align: center;
     margin: 40px 0px;
 }
 
-.dashboard .secondary .goal .complete .setgoal{
-     display: inline-block;
-	 padding: 0.75rem 2.25rem;
-	 border-radius: 10rem;
-	 color: #fff;
-     text-decoration: none;
-	 text-transform: uppercase;
-	 font-size: 1.25rem;
-	 letter-spacing: 0.15rem;
-	 transition: all 0.3s;
-	 position: relative;
-	 overflow: hidden;
-	 z-index: 1;
+.dashboard .secondary .goal .complete .setgoal {
+    display: inline-block;
+    padding: 0.75rem 2.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.dashboard .secondary .goal .complete .setgoal:after{
+.dashboard .secondary .goal .complete .setgoal:after {
     content: '';
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 width: 100%;
-	 height: 100%;
-	 background-color: #439A97;
-	 border-radius: 10rem;
-	 z-index: -2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #439A97;
+    border-radius: 10rem;
+    z-index: -2;
 }
 
-.dashboard .secondary .goal .complete .setgoal:before{
+.dashboard .secondary .goal .complete .setgoal:before {
     content: '';
-	 position: absolute;
-	 bottom: 0;
-	 left: 0;
-	 width: 0%;
-	 height: 100%;
-	 background-color: #97DECE;
-	 transition: all 0.3s;
-	 border-radius: 10rem;
-	 z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #97DECE;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
 }
 
-.dashboard .secondary .goal .complete .setgoal:hover{
+.dashboard .secondary .goal .complete .setgoal:hover {
     color: #fff;
 }
 
-.dashboard .secondary .goal .complete .setgoal:hover:before{
-    width:100%;
+.dashboard .secondary .goal .complete .setgoal:hover:before {
+    width: 100%;
 }
 
-.dashboard .secondary .goal{
+.dashboard .secondary .goal {
     background-color: #fff;
     padding: 15px;
     position: relative;
@@ -197,31 +226,33 @@ Secondary Statics
 
 /* Categories */
 
-.dashboard .secondary .categories{
+.dashboard .secondary .categories {
     background-color: #fff;
-    padding: 15px 15px 15px 60px;;
+    padding: 15px 15px 15px 60px;
+    ;
     margin-bottom: 30px;
-    overflow : auto;
+    overflow: auto;
 }
 
-.dashboard .secondary .categories .cat-container{
+.dashboard .secondary .categories .cat-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-bottom:40px;
+    margin-bottom: 40px;
 }
 
-.dashboard .secondary .categories .cat-container .cat-label{
+.dashboard .secondary .categories .cat-container .cat-label {
     position: relative;
     margin-top: 70px;
-   // margin-right: 30px;
+    /* // margin-right: 30px; */
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     color: #439A97;
-    float:left;
+    float: left;
 }
-.dashboard .secondary .categories .cat-container > div {
-    margin:2px;
-  }
+
+.dashboard .secondary .categories .cat-container>div {
+    margin: 2px;
+}
 
 .dashboard .secondary .categories .cat-container #prog {
     position: relative;
@@ -230,7 +261,7 @@ Secondary Statics
     border-radius: 50%;
     display: grid;
     place-items: center;
-  }
+}
 
 .dashboard .secondary .categories .cat-container #prog:before {
     content: "";
@@ -239,77 +270,93 @@ Secondary Statics
     width: 84%;
     background-color: #DEF7F4;
     border-radius: 50%;
-  }
+}
 
-  .dashboard .secondary .categories .cat-container #prog .value-container-food ,
-  .value-container-travel, .value-container-shopping, .value-container-services,
-   .value-container-transfers, .value-container-ent, .value-container-bills, .value-container-health,
-   .value-container-cafe, .value-container-bev, .value-container-misc {
+.dashboard .secondary .categories .cat-container #prog .value-container-food,
+.value-container-travel,
+.value-container-shopping,
+.value-container-services,
+.value-container-transfers,
+.value-container-ent,
+.value-container-bills,
+.value-container-health,
+.value-container-cafe,
+.value-container-bev,
+.value-container-misc {
     position: relative;
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     color: #439A97;
-  }
+}
 
 
-  /* ==========================
+/* ==========================
 Media Query 768xp 
 ============================= */
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
 
-    section.secondary{
+    section.secondary {
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
         background-color: #ffffff;
         padding-top: 70px;
-        //overflow:auto;
+        /* //overflow:auto; */
     }
-    section.secondary .goal{
+
+    section.secondary .goal {
         width: 40%;
     }
-    section.secondary .categories{
+
+    section.secondary .categories {
         width: 55%;
     }
-    
+
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1024px) {
+
     .dashboard .navigation,
     .dashboard .navigation div span,
-    section.secondary{
+    section.secondary {
         display: block;
     }
-    .dashboard .navigation{
+
+    .dashboard .navigation {
         width: 60px;
-        //position: fixed;
+        /* //position: fixed; */
         z-index: 10;
     }
-    section.main{
+
+    section.main {
         width: 60%;
         margin-left: 90px;
         margin-right: 20px;
     }
-    section.secondary{
+
+    section.secondary {
         width: 27%;
         padding-top: 0px;
-        margin-left:75%;
-        margin-right:0;
-        //position: fixed;
+        margin-left: 75%;
+        margin-right: 0;
+        /* //position: fixed; */
         top: 20px;
         right: 0px;
         background-color: transparent;
     }
+
     section.secondary .goal,
-    section.secondary .categories{
+    section.secondary .categories {
         width: 100%;
         border-radius: 10px;
     }
-    .dashboard .navigation div{
+
+    .dashboard .navigation div {
         margin-top: 19vh;
         margin-bottom: 19vh;
     }
-    .dashboard .navigation div span{
+
+    .dashboard .navigation div span {
         margin-top: 5vh;
     }
 }

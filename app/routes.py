@@ -42,7 +42,15 @@ def home():
     print(data)
     # tot_amt=total_amt.find_one()
     # print(total_amt['Amount'])
+    totalout=0
+    goals=db.set_goal
+    gl=goals.find()
+    for g in gl:
+        totalout+=int(g['goalval'])
+    print(totalout)
     total=pickle.load(open('total.pkl','rb'))
+    print("TOTAL ",type(total),total)
+    tot_per=round(total*100/totalout)+1
     months=[]
     values=[]
     for x in data:
@@ -54,24 +62,31 @@ def home():
     m=json.dumps(months)
     v=json.dumps(values)
     dict=json.dumps(d)
-    t=json.dumps(total)
-    return render_template('index.html',dict=dict,months=m,values=v,tot=t)
+    t=json.dumps(tot_per)
+    ttl=json.dumps(total)
+    ttlo=json.dumps(totalout)
+    return render_template('index.html',dict=dict,months=m,values=v,tot=t,Total=ttl,Totalout=ttlo)
 
 @app.route('/takeout',methods=['POST','GET'])
 def takeout():
     df=read_take()
     df2=df.groupby('Type')['Amount'].sum()
     df3=df.groupby('Name')['Amount'].sum()
+    df4=df.groupby('Name').size().sort_values(ascending=False)
+    print(df4)
     print(df2)
     print(df3)
 
     df4=df.groupby('Name').size().sort_values(ascending=False)
-    print(df4)
+    print(df4.iloc[0])
     return render_template('base.html')
 
 @app.route('/setgoals',methods=['POST','GET'])
 def setgoals():
     d=dict()
+    catg=["Food", "Travel", "Shopping", "Services", "Transfers","Health","Entertainment","Bills","Cafe","Beverages","Miscellaneous"]
+    for c in catg:
+        d[c]='0'
     goals=db.set_goal
     gl=goals.find()
     for g in gl:
@@ -169,7 +184,7 @@ def setgoals():
             print("None")
         print(d)
         return render_template('Set_goals.html',dict=d)
-    return render_template('Set_goals.html')
+    return render_template('Set_goals.html',dict=d)
 
 @app.route('/report',methods=['GET','POST'])
 def report():

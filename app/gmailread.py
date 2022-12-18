@@ -68,14 +68,19 @@ def read():
 
         date_time_str=""
         date_time_str=datetime.strptime(date_str+time_str,"%Y-%m-%d%H:%M:%S")
-        # try:
-        #     date_time_str=pickle.load(open('lastdt.pkl','rb'))
-        # except (OSError, IOError) as e:
-        #     foo = 3
-        #     date_time_str=datetime.strptime(date_str+time_str,"%Y-%m-%d%H:%M:%S")
 
-        # pickle.dump(now, open('lastdt.pkl','wb'))
+        #FOR TIME
+        try:
+            date_time_str=pickle.load(open('lastdt.pkl','rb'))
+        except (OSError, IOError) as e:
+            foo = 3
+            date_time_str=datetime.strptime(date_str+time_str,"%Y-%m-%d%H:%M:%S")
 
+        pickle.dump(now, open('lastdt.pkl','wb'))
+
+        #To store monthly updates in bargraph
+        db2=client.testdb
+        monthly=db2.monthlydb
         # FOR TOTAL 
         total=0
         try:
@@ -103,9 +108,10 @@ def read():
                             sender=d['value']
                         if d['name']=='Date':
                             date=d['value']
-                            # print(date)
+                            print(date)
                             splitted_date=date.split(" ")
                             date_Str=splitted_date[1]+splitted_date[2]+splitted_date[3]+splitted_date[4]
+                            print(date_Str)
                             date_time_Str=datetime.strptime(date_Str,"%d%b%Y%H:%M:%S")
 
                     # Printing the subject, sender's email and message
@@ -136,6 +142,7 @@ def read():
                             store.update_one({"name":s,"cat_name":p[0]},{"$inc":{"Amount":spend}},upsert=True)
                             total+=spend
                             pickle.dump(total, open('total.pkl','wb'))
+                            monthly.update_one({"Month":"Dec"},{"$inc":{"Total":spend}})
                         else:
                             spend=int(splittd_msg[16][1:-3])
                             s=splittd_msg[i+1]
@@ -147,6 +154,7 @@ def read():
                             store.update_one({"name":s,"cat_name":p[0]},{"$inc":{"Amount":spend}},upsert=True)
                             total+=spend
                             pickle.dump(total, open('total.pkl','wb'))
+                            monthly.update_one({"Month":"Dec"},{"$inc":{"Total":spend}})
                     else:
                         print("Exit")
                         f=False
