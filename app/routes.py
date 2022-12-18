@@ -7,6 +7,9 @@ from app.takeout import read_take
 from pymongo import MongoClient
 from app.database import dbval
 import pickle
+from pandas import DataFrame
+# from werkzeug.utils import secure_filename
+import os
 
 client = MongoClient('localhost', 27017)
 db=client.Appsdata
@@ -71,15 +74,36 @@ def home():
 def takeout():
     df=read_take()
     df2=df.groupby('Type')['Amount'].sum()
-    df3=df.groupby('Name')['Amount'].sum()
-    df4=df.groupby('Name').size().sort_values(ascending=False)
-    print(df4)
+    # df3=df.groupby('Name')['Amount'].sum()
+    # df4=df.groupby('Name').size().sort_values(ascending=False)
+    # print(df4)
+    # print(df2)
     print(df2)
-    print(df3)
-
+    cat=[]
+    val=[]
     df4=df.groupby('Name').size().sort_values(ascending=False)
     print(df4.iloc[0])
-    return render_template('base.html')
+    if request.method=='POST':
+        # if 'file' not in request.files:
+        #     flash('No file')
+        #     return redirect(request.url)
+
+        # file = request.files['file']
+        # if file.filename == '':
+        #     flash('No selected file')
+        #     return redirect(request.url)
+
+        # if file:
+        #     filename = secure_filename(file.filename)
+        #     file.save(os.path.join(app.config['UPLOAD_FOLDER'], "My Activity.html"))
+        
+        for items in df2.iteritems():
+            cat.append(items[0])
+            val.append(items[1])
+        c=json.dumps(cat)
+        a=json.dumps(val)
+        return render_template('page.html',cat=c,val=a)
+    return render_template('page.html',cat=cat,val=val)
 
 @app.route('/setgoals',methods=['POST','GET'])
 def setgoals():
@@ -192,12 +216,23 @@ def report():
     cat=category.find()
     ctg=[]
     amt=[]
-
     for x in cat:
         ctg.append(x['cat_name'])
         amt.append(x['Amount'])
     # print(months)
     # print(values)
+    # list_cur = list(cat)
+    # dfc = DataFrame(list_cur)
+    # print(dfc.head())
+    # df2c=dfc.groupby('cat_name')['Amount'].sum().sort_values(ascending=False)
+    # # df3=df2.to_frame()
+    # df2tc=df2c.reset_index()
+    # print(df2tc.iloc[0])
+
+    # # Use DataFrame.groupby() and Size() 
+    # df4c=dfc.groupby('Name').size() .sort_values(ascending=False)
+    # df5c=df4c.reset_index()
+    # print("Highest frequency payment",df5c.iloc[0].Name)
     c=json.dumps(ctg)
     a=json.dumps(amt)
     return render_template('report.html',category=c,amount=a)

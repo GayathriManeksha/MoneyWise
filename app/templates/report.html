@@ -3,54 +3,59 @@
 
 <body>
   <link rel="stylesheet" href="{{url_for('static',filename='CSS/styler.css')}}" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<main>
-  <div class="div1">
-    <img src="{{url_for('static',filename = 'images/logo-final.png')}}">
-  </div>
-  <div class="div2">
-    <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
-  <script>
-  var xValues = ["Food", "Travel", "Shopping", "Services", "Transfers","Health","Entertainment","Bills","Cafe","Beverages","Miscellaneous"];
-  yValues = JSON.parse({{ amount| tojson}});;
-  var barColors = [
-    "#DBA39A",
-    "#BA94D1",
-    "#FEBE8C",
-    "#B6E2A1",
-    "#FFB9B9",
-    "#B8E8FC",
-    "#FDFDBD",
-    "#FFD1D1",
-    "#AAC4FF",
-    "#9ED2C6",
-    "#AAC4FF"
-  ];
-  
-  new Chart("myChart", {
-    type: "pie",
-    data: {
-      labels: xValues,
-      datasets: [{
-        backgroundColor: barColors,
-        data: yValues
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: "Category-Wise Spent"
-      }
-    }
-  });
-  </script>
-  </div>
-  <div class="div3">
-    <br>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <main>
+    <div class="div1">
+      <img src="{{url_for('static',filename = 'images/logo-final.png')}}">
+    </div>
+    <div class="div2">
+      <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+      <script>
+        var xValues = ["Food", "Travel", "Shopping", "Services", "Transfers", "Health", "Entertainment", "Bills", "Cafe", "Beverages", "Miscellaneous"];
+        yValues = JSON.parse({{ amount| tojson}});;
+        var barColors = [
+          "#DBA39A",
+          "#BA94D1",
+          "#FEBE8C",
+          "#B6E2A1",
+          "#FFB9B9",
+          "#B8E8FC",
+          "#FDFDBD",
+          "#FFD1D1",
+          "#AAC4FF",
+          "#9ED2C6",
+          "#AAC4FF"
+        ];
 
-  </div>
-</main>
+        new Chart("myChart", {
+          type: "pie",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Category-Wise Spent"
+            }
+          }
+        });
+      </script>
+    </div>
+    <!-- <div class="div3">
+      <br>
+      <p>
+      <h2>
+        HI
+      </h2>
+      </p>
+    </div> -->
+  </main>
 
 
 </body>
+
 </html>

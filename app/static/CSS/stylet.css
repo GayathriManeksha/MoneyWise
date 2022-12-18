@@ -1,74 +1,74 @@
 body {
-    font-family: "poppins";
-    //display:flex;
-  }
-
-
-  .Sub{
-    background: #99c793;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Rubik", sans-serif;
-    font-size: inherit;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    outline: none;
-    padding: 1rem 50px;
-    position: relative;
-    transition: all 0.3s;
-    vertical-align: middle;
-  }
-
-  .Sub:hover{
-    background-color: #439A97;
-  }
-
-  
-  
-  
-  .registration-form  {
-    background: #ECF8F6;
-    color: #439A97;
-    width: 100%;
-    border: 0;
-    padding: 20px;
-    text-align:center;
-    margin-top: 5%;
-  }
- 
-  
-  /* CSS */
- 
-  
-  #success{
-    
-      margin-left: auto;
-      display:flex;
-      //justify-content:center;
-  }
-
-  #pieChart{
-    height:600px;
-  }
-
-  
-
-.Spend-Chart{
-   margin-left: 125px;
-}
-.spendReport{
-    margin-top: 100px;
-    width:100%;
-    font-family: "Nunito", sans-serif;
-    color: #439A97;
-    border: 3px solid;
-    border-radius: 12px;
-    border-color: #439A97;
-}
-.spendReport label{
-    margin-left: 20px;
+  font-family: "poppins";
+  //display:flex;
 }
 
+
+.Sub {
+  background: #99c793;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Rubik", sans-serif;
+  font-size: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+.Sub:hover {
+  background-color: #439A97;
+}
+
+
+
+
+.registration-form {
+  background: #ECF8F6;
+  color: #439A97;
+  width: 100%;
+  border: 0;
+  padding: 20px;
+  text-align: center;
+  margin-top: 5%;
+}
+
+
+/* CSS */
+
+
+#success {
+
+  margin-left: auto;
+  display: flex;
+}
+
+#pieChart {
+  height: 600px;
+}
+
+
+
+.Spend-Chart {
+  margin-left: 125px;
+}
+
+.spendReport {
+  margin-top: 100px;
+  width: 100%;
+  font-family: "Nunito", sans-serif;
+  color: #439A97;
+  border: 3px solid;
+  border-radius: 12px;
+  border-color: #439A97;
+}
+
+.spendReport label {
+  margin-left: 20px;
+}

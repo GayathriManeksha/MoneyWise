@@ -1,32 +1,36 @@
-.div1 img{
+.div1 img {
     width: 15%;
     margin-right: 0.3rem;
 }
-.div2{
-   margin-left: 125px;
-   display:flex;
-   justify-content:center;
+
+.div2 {
+    margin-left: 125px;
+    display: flex;
+    justify-content: center;
 }
-.div3{
+
+.div3 {
     margin-top: 100px;
-    width:100%;
+    width: 100%;
     font-family: "Nunito", sans-serif;
     color: #439A97;
     border: 3px solid;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     border-color: #439A97;
 }
-.div3 label{
+
+.div3 label {
     margin-left: 20px;
 }
-.tb2{
+
+.tb2 {
     font-family: "Nunito", sans-serif;
     border: 2px solid;
     color: #439A97;
     border-color: #439A97;
     border-radius: 10px;
     height: 30px;
-    width:20%;
-    margin-left:75%;
-    
-  }
+    width: 20%;
+    margin-left: 75%;
+
+}

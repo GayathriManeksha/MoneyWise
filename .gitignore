@@ -16,8 +16,9 @@ venv.bak/
 env
 
 #ml
-testml/
+# testml/
 *.pkl
+*.pickle
 
 #token
 *.json
