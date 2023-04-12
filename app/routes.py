@@ -11,7 +11,7 @@ from pandas import DataFrame
 # from werkzeug.utils import secure_filename
 import os
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://172.17.0.2:27017/')
 db=client.Appsdata
 db2=client.testdb
 monthly=db2.monthlydb
@@ -125,7 +125,7 @@ def setgoals():
             #     d['Food']='0'
             goals.update_one({"cat_name":"Food"},{"$set":{"goalval":request.form['foodt']}},upsert=True)
         elif request.form.get('travel')=='travel':
-            # x=goals.find_one({"cat_name":"Travel"})
+            # x=goals.one({"cat_name":"Travel"})
             # if  x!=None:
             #     d['Travel']=x['goalval']
             # else:

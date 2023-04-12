@@ -14,6 +14,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.dashboard::-webkit-scrollbar {
+    display: none;
+}
+
 .logo {
     width: 100%;
     padding-top: 75px;
@@ -99,6 +104,11 @@ body {
     height: 100vh;
     background: #F6FDFC;
     font-size: 0.85em;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.main-bar::-webkit-scrollbar {
+    display: none;
 }
 
 .grid-container {
